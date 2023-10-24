@@ -1,46 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useSpring, animated } from "react-spring";
-import stock from '../img/stock.jpg'; 
-
-const FeatureButton = () => {
-  return(
-    <>
-      <button className="featureButton">
-        <a href="#" target="_blank">
-          <span> </span>
-          <span> </span>
-          <span> </span>
-          <span> </span>
-          Explore Now 
-        </a>
-      </button>
-    </>
-  )
-}
-
+import smn from '../img/smn.JPEG';
+import overallProfit from '../img/overallProfit.JPEG';
+import netWorth from '../img/netWorth.PNG';
+import ImageContainer from './ImageContainer';
 
 export const Features = (props) => {
-  return (
-    <div className="text-center">
-      <div className="container">
-        <div id="features" style={{ height: '100%' }}>
-          <div className="col-md-10 col-md-offset-1 section-title">
-            <h2>Features</h2>
-          </div>
-          <div class="row">
-            <div class="col-lg-6">
-              <img src={stock} className="featureImg"/>
-            </div>
-            <div class="col-lg-6">
-              <div class="p-5 mt-4">
-                  <h1 class="display-4">Stock Market Navigator</h1>
-                  <p class="lead">Stay ahead of the curve with our cutting-edge platform that delivers real-time stock market data at your fingertips. Make informed decisions, track trends, and secure your financial future with ease </p>
-                  <FeatureButton />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-};
+
+const config = [
+    {
+        imgSrc:smn,
+        stylingId:"smn",
+        title:"Stock Market Navigator",
+        subtitle:"Unlock the Future of Finance",
+        bodyContent:"Our cutting-edge platform provides real-time stock market data at your fingertips, allowing you to make informed decisions, track market trends, and secure your financial future with ease",
+    },
+    {
+        imgSrc:overallProfit,
+        stylingId:"overallProfit",
+        title:"Overall Profit",
+        subtitle:"Maximize Your Earnings",
+        bodyContent:"We don't just count profits; we track your financial journey since the day you started trading. Whether it's celebrating your gains or calculating your losses, we help you navigate your path to financial success on your terms.",
+    },
+    {
+        imgSrc:netWorth,
+        stylingId:"netWorth",
+        title:"Net Worth",
+        subtitle:"Know your worth",
+        bodyContent:"This tool unveils your true net worth, enabling you to empower your financial decisions and pave the way for a prosperous tomorrow. Elevate your financial journey, explore the future of finance, and take control of your trading experience with us. Your financial success story begins here.",
+    },
+]
+  return config?.map((item, index) => <ImageContainer
+                                            index={index}
+                                            imgSrc={item?.imgSrc}
+                                            title={item?.title}
+                                            subtitle={item.subtitle}
+                                            bodyContent={item?.bodyContent}
+                                            stylingId={item.stylingId}/>
+                                          );
+                                        };

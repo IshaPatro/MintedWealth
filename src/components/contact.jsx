@@ -146,13 +146,6 @@ export const Contact = (props) => {
           </div>
         </div>
       </div>
-      <div id="footer">
-        <div className="container text-center">
-          <p>
-            &copy; 2023 Isha Patro Minted Wealth Website
-          </p>
-        </div>
-      </div>
     </div>
   );
 };
